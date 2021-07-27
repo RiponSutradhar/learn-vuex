@@ -1,35 +1,26 @@
+import { Store } from 'vuex';
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <div class="counter">
-      {{ counter }}
-    </div>
-
-    <div class="buttons">
-      <button @click="decreaseCounter">-</button>
-      <button @click="increaseCounter">+</button>
-    </div>
+    <counter></counter>
+    <counterSquared></counterSquared>
+    <buttons></buttons>
+    <ColorCode></ColorCode>
   </div>
 </template>
 
 <script>
+//import counter from "@/components/counter";
 export default {
   name: "Home",
-  data() {
-    return {
-      counter: 0,
-    };
+  components: {
+    // counter,
+    counter: require("@/components/counter.vue").default,
+    counterSquared: require("@/components/counter-squared").default,
+    buttons: require("@/components/buttons").default,
+    ColorCode: require("@/components/ColorCode").default,
   },
-
-  methods: {
-    decreaseCounter() {
-      this.counter--;
-    },
-
-    increaseCounter() {
-      this.counter++;
-    },
-  },
+  
 };
 </script>
 
